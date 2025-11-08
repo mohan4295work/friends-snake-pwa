@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Friends Snake — PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Friends Snake</h1>
+    <div class="controls">
+      <button id="startBtn">Start</button>
+      <button id="pauseBtn">Pause</button>
+      <label><input type="checkbox" id="musicToggle" checked> Music</label>
+      <label><input type="checkbox" id="sfxToggle" checked> SFX</label>
+    </div>
+  </header>
+  <main>
+    <canvas id="gameCanvas" width="640" height="640"></canvas>
+    <aside id="hud">
+      <div>Score: <span id="score">0</span></div>
+      <div>Speed: <span id="speedLevel">1</span></div>
+      <div>Length: <span id="len">1</span></div>
+      <div id="status">Press Start</div>
+    </aside>
+  </main>
+  <footer>
+    <p>Friends-themed Snake — Play offline! Install as PWA.</p>
+  </footer>
+
+<script src="app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(console.error);
+}
+</script>
+</body>
+</html>
